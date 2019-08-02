@@ -7,4 +7,4 @@ Impactjs ---
 ** sample it !
 ![](demo.gif)
 #Android App Added ---
-![get the android app here](https://build.phonegap.com/apps/3653074/share)
+[get the android app here]: (https://build.phonegap.com/apps/3653074/share)
