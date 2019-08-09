@@ -41,6 +41,17 @@
 <!-- ImpactJS Bundled Library -->
 <script type="text/javascript" src="game.js"></script>
 <script type="text/javascript">
+
+if ('serviceWorker' in navigator) {
+    // Will the service worker register? ...
+    navigator.serviceWorker.register('sw.js')
+      .then(function(reg){
+        // Yes, it did ...
+     }).catch(function(err) {
+        // hell No , it didn't ...
+    });
+ }
+
 window.addEventListener('load', function(){
 playerInfo = {} // obj
 // Bootstrapping
