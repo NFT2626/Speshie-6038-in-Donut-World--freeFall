@@ -1,104 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>freeFall Game</title>
-<meta name="description" content="freeFall, a Facebook instant Games capable Game built using impactjs"/>
-<meta name="theme-color" content="#000" />
-<meta name="msapplication-TileColor" content="#000" />
-<meta name="msapplication-TileImage" content="./media/icons/mstile-150x150.png" />
-<meta name="mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="apple-mobile-web-app-title" content="freeFall Game" />
-<meta name="application-name" content="freeFall Game" />
-<link rel="manifest" href="./manifest.json" />
-<meta name="viewport" content="width=device-width">
-<link rel="stylesheet" href="styles.css" />
-<style type="text/css">
-		html,body {
-			background-color: #333;
-			color: #fff;
-			font-family: helvetica, arial, sans-serif;
-			margin: 0;
-			padding: 0;
-			font-size: 12pt;
-		}
-		
-		#canvas {
-			position: absolute;
-			left: 0;
-			top: 0;
-			margin: auto;
-		}
-</style>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117282982-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <title>freeFall Game</title>
+    <meta name="description" content="freeFall, a Facebook instant Games capable Game built using impactjs" />
+    <meta name="theme-color" content="#000" />
+    <meta name="msapplication-TileColor" content="#000" />
+    <meta name="msapplication-TileImage" content="./media/icons/mstile-150x150.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="freeFall Game" />
+    <meta name="application-name" content="freeFall Game" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles.css" />
+    <style type="text/css">
+        html,
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: helvetica, arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 12pt;
+        }
 
-  gtag('config', 'UA-117282982-3');
-</script>
+        #canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: auto;
+        }
+    </style>
 </head>
+
 <body>
-<canvas id="canvas"></canvas>
-<!-- ES5-Shim -->
-<script type="text/javascript" src="es5-shim.min.js"></script>
-<!-- FB instant Gaming "https://connect.facebook.net/en_US/fbinstant.6.1.js" -->
-<script></script>
-<!-- ImpactJS Bundled Library -->
-<script type="text/javascript" src="game.js"></script>
-<script type="text/javascript">
-
-if ('serviceWorker' in navigator) {
-    // Will the service worker register? ...
-    navigator.serviceWorker.register('sw.js')
-      .then(function(reg){
-        // Yes, it did ...
-     }).catch(function(err) {
-        // hell No , it didn't ...
-    });
- }
-
-window.addEventListener('load', function(){
-playerInfo = {} // obj
-// Bootstrapping
-var scale = (window.innerWidth < 640) ? 2 : 1;
-var canvas = document.getElementById('canvas');
-	canvas.style.width = window.innerWidth + 'px';
-	canvas.style.height = window.innerHeight + 'px';
-var width = window.innerWidth * scale,
-	height = window.innerHeight * scale;
-
-if (typeof FBInstant !== 'undefined') { // fb platform ...
-FBInstant.initializeAsync()
-  .then(function() {
-    playerInfo.name = FBInstant.player.getName();
-    playerInfo.photo = FBInstant.player.getPhoto();
-    playerInfo.id = FBInstant.player.getID();
-    playerInfo.locale = FBInstant.getLocale();
-});
-	
-// window.addEventListener('load', function(){
-		FBInstant.initializeAsync()
-			.then(function() {
-			ig.main('#canvas', mainGame, 60, width, height, 1, blastOff);
-		});
-// }, false);
-
-FBInstant.startGameAsync().then(function() {
-
-	//  If the game hasn't started yet, there's nothing to do here
-	if( !ig.system ) { return; }
-	// Resize the canvas style and tell Impact to resize the canvas itself;
-	canvas.style.width = window.innerWidth + 'px';
-	canvas.style.height = window.innerHeight + 'px';
-	ig.system.resize( window.innerWidth * scale, window.innerHeight * scale );	
-
-});
-} else { ig.main('#canvas', mainGame, 60, width, height, 1, blastOff); }
-}, false);
- </script>
+    <canvas id="canvas"></canvas>
+    <!-- ImpactJS Bundled Library -->
+    <!-- after build ofcourse -->
+    <script type="text/javascript" src="lib/impact/impact.js"></script>
+    <script type="text/javascript" src="lib/game/main.js"></script>
 </body>
+
 </html>

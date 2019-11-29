@@ -1,9 +1,9 @@
-# freeFall Game
-![](demo.gif)
-- HTML5 Game 
-- Runs smoothly on Mobile -- tested on latest chrome Android
-- Progressive webapp capable
-- facebook instant Games Capable ---
-- Using Impactjs ---
-
-[Get the android app here](https://build.phonegap.com/apps/3653074/share)
+# freeFall v2.0
+I have update the game by adding a palallax scrolling background behind the scene I've also changed the onscreen buttons its now 
+* L: left 
+* R: right
+* A: jump 
+* B: pause
+"for touch enabled devices" keyboard keys are still the same.
+the entities are using a new spritesheet from Kennys.nl
+I'm still using impact aswell a powerful game engine.
