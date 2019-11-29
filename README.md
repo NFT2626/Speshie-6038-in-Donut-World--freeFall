@@ -4,6 +4,7 @@ I have update the game by adding a palallax scrolling background behind the scen
 * R: right
 * A: jump 
 * B: pause
+
 "for touch enabled devices" keyboard keys are still the same.
 the entities are using a new spritesheet from Kennys.nl
 I'm still using impact aswell a powerful game engine.
