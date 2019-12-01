@@ -43,6 +43,17 @@
     <!-- after build ofcourse -->
     <script type="text/javascript" src="lib/impact/impact.js"></script>
     <script type="text/javascript" src="lib/game/main.js"></script>
+	<script type="text/javascript">
+	if ('serviceWorker' in navigator) {
+	    // Will the service worker register? ...
+	    navigator.serviceWorker.register('./sw.js')
+	      .then(function(reg){
+	        // Yes, it did ...
+	     }).catch(function(err) {
+	        // hell No , it didn't ...
+	    });
+	 }
+	</script>
 </body>
 
 </html>
